@@ -11,14 +11,17 @@ To install composer dependencies, we need to run:
 
 Create & edit your own copy of settings file (we need to set a correct MySQL DB connection settings here):
 > cp .env.example .env
+
 > vim .env
 
 Now, when steps above are done, run this two commands to build DB  structure and to fill the DB with some sample data:
 >php artisan migrate
+
 >php artisan db:seed
 
 Some more small preparations:
 >php artisan key:generate
+
 >php artisan config:cache
 
 And, finally, to run the application, execute:
