@@ -6,7 +6,6 @@ use App\Models\State;
 
 class HomeController extends Controller
 {
-
     /**
      * Show the application dashboard - some public statistics.
      *

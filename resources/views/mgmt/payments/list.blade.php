@@ -28,7 +28,7 @@
                             <div class="col-4">
                                 <select id="tax" class="form-control" name="tax_id">
                                     <option value=""> - Select Tax - </option>
-                                    @foreach($taxes_list as $tax_id => $tax_lbl)
+                                    @foreach($rates_data['taxes'] as $tax_id => $tax_lbl)
                                     <option value="{{ $tax_id }}" @if($tax_id == $current_tax_id) selected @endif>
                                         {{ $tax_lbl }}
                                     </option>

@@ -27,10 +27,12 @@ class PaymentsController extends Controller
      */
     public function index(Request $request)
     {
+        // Extract filters values
         $tax_id = $request->get('tax_id');
         $state_id = $request->get('state_id');
         $county_id = $request->get('county_id');
 
+        // Assemble primary DB query
         $query = Payment::with(['tax', 'county', 'county.state']);
         if ($tax_id) {
             $query->where('tax_id', $tax_id);
@@ -41,35 +43,26 @@ class PaymentsController extends Controller
                     // First load all counties
                     $counties = County::where('state_id', $state_id)->get();
                     $counties_plucked = $counties->pluck('id');
-//                    var_dump($counties_plucked);die();
                     $query->whereIn('county_id', $counties_plucked->toArray());
                 }
             }
         }
-//        \Illuminate\Support\Facades\DB::enableQueryLog(); // Enable query log
-
         $payments = $query->paginate(10);
 
-// Your Eloquent query
-
-//dd(\Illuminate\Support\Facades\DB::getQueryLog()); // Show results of log
+        // We will also need TAX rates data
         $rates_data = State::getTaxesRatesOverview();
-        $taxes = Tax::all();
-        $taxes_plucked = $taxes->pluck('name', 'id');
 
         return view(
             'mgmt.payments.list',
             [
                 'payments' => $payments,
                 'rates_data' => $rates_data,
-                'taxes_list' => $taxes_plucked,
                 'current_tax_id' => $tax_id,
                 'current_state_id' => $state_id,
                 'current_county_id' => $county_id,
             ]
         );
     }
-
 
     /**
      * Show the tax payment create form.
@@ -90,7 +83,6 @@ class PaymentsController extends Controller
             ]
         );
     }
-
 
     /**
      * Show the tax payment edit form.

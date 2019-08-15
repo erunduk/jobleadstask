@@ -1,6 +1,14 @@
 ## Introduction
 
-Once upon a time I have applied to a JobLeads Job. Spent some time running tests and interview. Now, after small pause it happened to spent some more time applying. To make this time fun & usefull I have decided to deep into something more-or-less new for me. So, even if my job application will fail, I will at least get the new experience solving the task. Some time ago I started learning & using Laravel in production, wrote one small project. I realy like Laravel, it is very nice especially for backend development. Currently the only thing I think is not good enough is forms data submission validation (I find Yii2 validation system better), well, who knows, maybe later I will change my opinion as I will get more experience.
+
+Once upon a time I have applied to a JobLeads Job, spent some time running tests and interview. 
+Now, after small pause, we seem to talk again. To make some use of this time, I have decided to deep into something more-or-less new for me.
+So, even if my job application will fail, I will at least get the new experience solving the task. 
+Some time ago I have started learning & using Laravel in production, wrote one small production project. 
+I really like Laravel, it is very nice especially for backend development. 
+This repository contains the results of my work. 
+Please, review it and let me know when it will be not needed anymore - I plan to drop it once it will be not needed anymore.
+
 
 ## Setup
 
